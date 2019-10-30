@@ -10,4 +10,17 @@ class Registro extends Model
         'id', 'fecha', 'cuenta_id','monto' ,'descripcion','estado',
     ];
 
+
+
+    public static function registrar_($fecha, $cuenta,$monto, $des){
+    	$registro = Registro::create([
+          'fecha'=> $fecha,
+          'cuenta_id'=> $cuenta,
+          'monto' => $monto,
+          'descripcion' => $des,
+          'estado' => 'actual'
+    	]);
+    	return $registro;
+    }
+
 }

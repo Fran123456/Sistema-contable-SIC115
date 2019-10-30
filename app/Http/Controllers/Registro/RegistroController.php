@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Registro;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cuenta;
+use App\Registro;
 
 //Controlador para registrar y manejar los registros contables
 class RegistroController extends Controller
@@ -38,7 +39,10 @@ class RegistroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $re1 = Registro::registrar_($request->fecha, $request->cuentaA, $request->montoA ,$request->desA);
+        $re2 = Registro::registrar_($request->fecha, $request->cuentaB, $request->montoB ,$request->desB);
+
+        return redirect('Registro')->with('success', 'El registro se realizo correctamente');
     }
 
     /**

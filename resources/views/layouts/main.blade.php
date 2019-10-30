@@ -19,21 +19,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('dist/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('dist/nprogress/nprogress.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('dist/animate.css/animate.min.css') }}">
-    <link href="{{asset('dist/iCheck/skins/flat/green.css')}}" rel="stylesheet">
-    <link href="{{asset('dist/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
-    <link href="{{asset('dist/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom.min.css')}}">
+
     <!-- Scripts -->
     <script src="{{ asset('dist/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('dist/bootstrap/js/bootstrap.bundle.min.js') }}" ></script>
-    <script src="{{ asset('dist/Flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('dist/Flot/jquery.flot.pie.js') }}"></script>
-    <script src="{{ asset('dist/Flot/jquery.flot.time.js') }}"></script>
-    <script src="{{ asset('dist/Flot/jquery.flot.stack.js') }}"></script>
-    <script src="{{ asset('dist/Flot/jquery.flot.resize.js') }}"></script>
-    <script src="{{ asset('dist/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
-    <script src="{{ asset('dist/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
-    <script src="{{ asset('dist/flot.curvedlines/curvedLines.js') }}"></script>
     <!--PERSONAL-->
 
 

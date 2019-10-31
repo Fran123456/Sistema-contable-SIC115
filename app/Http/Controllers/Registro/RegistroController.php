@@ -17,8 +17,7 @@ class RegistroController extends Controller
      */
     public function index()
     {   
-        $cuentas = Cuenta::obtener_cuentas();
-        return view('Registro.Registrar', compact('cuentas'));
+
     }
 
     /**
@@ -28,7 +27,8 @@ class RegistroController extends Controller
      */
     public function create()
     {
-        //
+        $cuentas = Cuenta::obtener_cuentas();
+        return view('Registro.Registrar', compact('cuentas'));
     }
 
     /**
@@ -52,8 +52,39 @@ class RegistroController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $registros = Registro::obtener_registros_actuales($id);
+        $meses = array('enero','febrero','marzo','abril','mayo','junio','julio', 'agosto','septiembre','octubre','noviembre','diciembre');
+
+        if(strlen($id) == 7){
+            $c = substr($id, -2);
+            for ($i=0; $i <count($meses) ; $i++) { 
+                if($c == ($i+1))
+                    $mes = "Libro diario de " . $meses[$i]. " del ". substr($id, 0,4);
+            }
+        }else if($id == "actual"){
+            for ($i=0; $i <count($meses); $i++) { 
+                 if(date("m") == ($i+1))
+                    $mes = $meses[$i];
+            }
+        }else{
+            $mes = "Libro diario de la fecha: " .$id;
+        }
+
+        return view('Registro.RegistrosLista', compact('registros','mes'));
+
+        
+    }
+
+    public function registros_fecha(Request $request){
+        $fecha = $request->date;
+        $control = $request->mes;
+
+        if($control != null){
+            $fecha = substr($fecha, 0,7);    // devuelve "f"
+        }
+        
+        return redirect()->route('Registro.show', $fecha);
     }
 
     /**

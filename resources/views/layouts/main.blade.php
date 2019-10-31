@@ -21,10 +21,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('dist/animate.css/animate.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom.min.css')}}">
 
+
     <!-- Scripts -->
     <script src="{{ asset('dist/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('dist/bootstrap/js/bootstrap.bundle.min.js') }}" ></script>
     <!--PERSONAL-->
+
 
 
 </head>
@@ -42,7 +44,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="{{ asset('images/img.jpg') }}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -60,7 +62,8 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Contabilidad <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Resitro contable</a></li>
+                      <li><a href="{{ route('Registro.create') }}">Registro contable</a></li>
+                      <li><a href="{{ route('Registro.show','actual') }}">Consultar libro diario</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -206,19 +209,8 @@
     </div>
 
 
-    <script src="{{asset('dist/fastclick/lib/fastclick.js') }} "></script>
     <script src="{{asset('dist/nprogress/nprogress.js') }} "></script>
-    <script src="{{asset('dist/Chart.js/dist/Chart.min.js')}}"></script>
-    <script src="{{asset('dist/gauge.js/dist/gauge.min.js')}}"></script>
-    <script src="{{asset('dist/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
-    <script src="{{asset('dist/iCheck/icheck.min.js')}}"></script>
-    <script src="{{asset('dist/skycons/skycons.js')}}"></script>
-    <script src="{{asset('dist/DateJS/build/date.js')}}"></script>
-    <script src="{{asset('dist/jqvmap/dist/jquery.vmap.js')}}"></script>
-    <script src="{{asset('dist/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-    <script src="{{asset('dist/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
     <script src="{{asset('dist/moment/min/moment.min.js')}}"></script>
-    <script src="{{asset('dist/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
     <script src="{{asset('js/custom.min.js') }}" ></script>
 </body>
 </html>

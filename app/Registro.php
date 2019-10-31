@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Cuenta;
+use Illuminate\Support\Facades\DB;
 
 class Registro extends Model
 {
@@ -22,5 +24,31 @@ class Registro extends Model
     	]);
     	return $registro;
     }
+
+    public static function obtener_registros_actuales($id){
+
+      if($id =="actual"){
+             $registros = DB::table('registros')
+            ->join('cuentas', 'cuentas.id', '=', 'registros.cuenta_id')
+            ->where('estado',$id)
+            ->paginate();
+      }
+      else{
+
+           if(strlen($id) == 7){
+            $registros = DB::table('registros')
+            ->join('cuentas', 'cuentas.id', '=', 'registros.cuenta_id')
+            ->where('fecha', 'like', '%' . $id . '%')
+            ->paginate();
+          }else{
+            $registros = DB::table('registros')
+            ->join('cuentas', 'cuentas.id', '=', 'registros.cuenta_id')
+            ->where('fecha',$id)
+            ->paginate();
+          }
+      }
+
+      return $registros;
+    } 
 
 }

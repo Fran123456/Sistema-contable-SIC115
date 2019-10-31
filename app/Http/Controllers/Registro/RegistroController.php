@@ -65,7 +65,7 @@ class RegistroController extends Controller
         }else if($id == "actual"){
             for ($i=0; $i <count($meses); $i++) { 
                  if(date("m") == ($i+1))
-                    $mes = $meses[$i];
+                    $mes ='Libro diario de '. $meses[$i] .' del '. date('Y') . ' (ACTUAL)';
             }
         }else{
             $mes = "Libro diario de la fecha: " .$id;

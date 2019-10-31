@@ -17,7 +17,7 @@ class RegistroController extends Controller
      */
     public function index()
     {   
-
+      
     }
 
     /**
@@ -39,10 +39,10 @@ class RegistroController extends Controller
      */
     public function store(Request $request)
     {
-        $re1 = Registro::registrar_($request->fecha, $request->cuentaA, $request->montoA ,$request->desA);
-        $re2 = Registro::registrar_($request->fecha, $request->cuentaB, $request->montoB ,$request->desB);
+        $re1 = Registro::registrar_($request->fecha, $request->cuentaA, $request->montoA ,$request->desA,'HABER');
+        $re2 = Registro::registrar_($request->fecha, $request->cuentaB, $request->montoB ,$request->desB,'DEBE');
 
-        return redirect('Registro')->with('success', 'El registro se realizo correctamente');
+        return redirect('Registro/create')->with('success', 'El registro se realizo correctamente');
     }
 
     /**

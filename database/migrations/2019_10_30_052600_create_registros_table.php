@@ -20,6 +20,8 @@ class CreateRegistrosTable extends Migration
             $table->string('monto');
             $table->text('descripcion')->nullable();
             $table->string('estado');
+            $table->string('debe')->nullable();
+            $table->string('haber')->nullable();
             $table->timestamps();
 
 

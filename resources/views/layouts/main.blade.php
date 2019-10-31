@@ -64,6 +64,8 @@
                     <ul class="nav child_menu">
                       <li><a href="{{ route('Registro.create') }}">Registro contable</a></li>
                       <li><a href="{{ route('Registro.show','actual') }}">Consultar libro diario</a></li>
+                      <li><a href="{{route('Cuenta.index')}}">Cuentas T</a></li>
+                      <li><a href="">Consolidado cuentas T</a></li>
                     </ul>
                   </li>
                 </ul>

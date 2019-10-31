@@ -54,6 +54,8 @@
                           <th>Descripción</th>
                           <th>Código cuenta</th>
                           <th>Cuenta</th>
+                          <th>Debe</th>
+                          <th>haber</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -65,6 +67,8 @@
                                  <td>{{$value->descripcion}}</td>
                                  <td>{{$value->codigo}}</td>
                                  <td>{{$value->nombre}}</td>
+                                 <td>{{$value->debe}}</td>
+                                 <td>{{$value->haber}}</td>
                               </tr>
                           @endforeach
                       </tbody>

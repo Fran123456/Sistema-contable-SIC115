@@ -9,19 +9,31 @@ use Illuminate\Support\Facades\DB;
 class Registro extends Model
 {
     protected $fillable = [
-        'id', 'fecha', 'cuenta_id','monto' ,'descripcion','estado',
+        'id', 'fecha', 'cuenta_id','monto' ,'descripcion','estado','debe','haber',
     ];
 
 
 
-    public static function registrar_($fecha, $cuenta,$monto, $des){
-    	$registro = Registro::create([
-          'fecha'=> $fecha,
-          'cuenta_id'=> $cuenta,
-          'monto' => $monto,
-          'descripcion' => $des,
-          'estado' => 'actual'
-    	]);
+    public static function registrar_($fecha, $cuenta,$monto, $des, $debeHaber){
+      if($debeHaber == 'DEBE'){
+          $registro = Registro::create([
+            'fecha'=> $fecha,
+            'cuenta_id'=> $cuenta,
+            'monto' => $monto,
+            'descripcion' => $des,
+            'estado' => 'actual',
+            'debe' => $debeHaber
+         ]);
+      }else{
+        $registro = Registro::create([
+            'fecha'=> $fecha,
+            'cuenta_id'=> $cuenta,
+            'monto' => $monto,
+            'descripcion' => $des,
+            'estado' => 'actual',
+            'haber' => $debeHaber
+         ]);
+      }
     	return $registro;
     }
 

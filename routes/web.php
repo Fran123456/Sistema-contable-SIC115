@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('Registro','Registro\RegistroController');
 Route::get('registros_fecha','Registro\RegistroController@registros_fecha' )->name('registros_fecha');
+
+Route::resource('Cuenta','Cuenta\CuentaController');

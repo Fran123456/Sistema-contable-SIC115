@@ -17,6 +17,7 @@ class CreateCuentasTable extends Migration
             $table->bigIncrements('id');
             $table->string('codigo');
             $table->string('nombre');
+            $table->string('tipo');
             $table->timestamps();
 
             $table->charset = 'utf8';   

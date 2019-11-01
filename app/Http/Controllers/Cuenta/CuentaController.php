@@ -36,7 +36,7 @@ class CuentaController extends Controller
      */
     public function store(Request $request)
     {
-        $cuenta = Cuenta::crear_cuenta($request->codigo, $request->cuenta);
+        $cuenta = Cuenta::crear_cuenta($request->codigo, $request->cuenta, $request->tipo);
         return redirect('Cuenta')->with('success', 'La cuenta <strong> ' .  $cuenta->nombre . ' </strong> ha sido registrada exitosamente');
     }
 
@@ -65,11 +65,15 @@ class CuentaController extends Controller
         if ($debe > $haber) $mayorizacion =  $debe - $haber;
         else if($debe < $haber) $mayorizacion =  $haber - $debe;
         else $mayorizacion =  0;
-        
-
-
+    
         return view('Cuenta.Cuenta', compact('debe','haber','cuenta','cuentaInfo','mayorizacion'));
     }
+
+    public function consolidado_cuentas(){
+        
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.

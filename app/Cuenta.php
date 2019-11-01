@@ -31,10 +31,11 @@ class Cuenta extends Model
     	return $cuenta;
     }
 
-    public static function crear_cuenta($codigo, $nombre){
+    public static function crear_cuenta($codigo, $nombre, $tipo){
     	$cuenta = Cuenta::create([
             'codigo'=> $codigo,
             'nombre'=> $nombre,
+            'tipo' => $tipo,
          ]);
 
     	return $cuenta;

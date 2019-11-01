@@ -36,7 +36,17 @@
                             </div>
                         </div>
 
-
+                        <div class="form-group row">
+                            <label class="col-form-label col-md-3 col-sm-3 ">Tipo de cuenta:</label>
+                            <select class="form-control" name="tipo">
+                              <option>ACTIVO</option>
+                              <option>PASIVO</option>
+                              <option>CAPITAL</option>
+                              <option>CUENTAS DE RESULTADO DEUDOR</option>
+                              <option>CUENTAS DE RESULTADO ACREEDOR</option>
+                              <option>CUENTAS LIQUIDADORAS</option>
+                            </select>
+                        </div>
 
                         </div>
                         <div class="modal-footer">

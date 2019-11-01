@@ -36,7 +36,8 @@ class CuentaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cuenta = Cuenta::crear_cuenta($request->codigo, $request->cuenta);
+        return redirect('Cuenta')->with('success', 'La cuenta <strong> ' .  $cuenta->nombre . ' </strong> ha sido registrada exitosamente');
     }
 
     /**

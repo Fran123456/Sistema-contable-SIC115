@@ -9,7 +9,63 @@
 </style>
 
 
+<form method="post" action="{{ route('Cuenta.store') }}">
+  @csrf
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel">Crear cuenta T</h4>
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          
+                        <div class="form-group row">
+                            <label class="col-form-label col-md-3 col-sm-3 ">Codigo cuenta:</label>
+                            <div class="col-md-9 col-sm-9 ">
+                              <input  type="text" required="" name="codigo" class="form-control" >
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-md-3 col-sm-3 ">Nombre cuenta:</label>
+                            <div class="col-md-9 col-sm-9 ">
+                              <input required="" name="cuenta" type="text" class="form-control">
+                            </div>
+                        </div>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                          <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+
+                      </div>
+          </div>
+ </div>
+ </form>
+
+
 <div class="col-md-12">
+
+@if(session('success'))
+   <div class="alert alert-success alert-dismissible " role="alert">
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+         </button>
+         {!! session('success') !!}
+   </div>
+@endif
+
+
+
+
+    <div>
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Crear cuenta T</button>
+    </div>
         <div class="x_panel">
               <div class="x_title">
                   <h2>Cuentas T</h2>

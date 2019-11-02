@@ -38,14 +38,17 @@
 
                         <div class="form-group row">
                             <label class="col-form-label col-md-3 col-sm-3 ">Tipo de cuenta:</label>
-                            <select class="form-control" name="tipo">
-                              <option>ACTIVO</option>
-                              <option>PASIVO</option>
-                              <option>CAPITAL</option>
-                              <option>CUENTAS DE RESULTADO DEUDOR</option>
-                              <option>CUENTAS DE RESULTADO ACREEDOR</option>
-                              <option>CUENTAS LIQUIDADORAS</option>
+                            <div class="col-md-9 col-sm-9 ">
+                              <select class="form-control" name="tipo">
+                              <option value="ACTIVO">ACTIVO</option>
+                              <option value="PASIVO">PASIVO</option>
+                              <option value="CAPITAL">CAPITAL</option>
+                              <option value="CUENTAS DE RESULTADO DEUDOR">CUENTAS DE RESULTADO DEUDOR</option>
+                              <option value="CUENTAS DE RESULTADO ACREEDOR">CUENTAS DE RESULTADO ACREEDOR</option>
+                              <option value="CUENTAS LIQUIDADORAS">CUENTAS LIQUIDADORAS</option>
                             </select>
+                            </div>
+                            
                         </div>
 
                         </div>
@@ -86,6 +89,7 @@
                   <div class="clearfix"></div>
               </div>
               <div class="x_content">
+                @if(count($cuentas)>0)
                   <ul class="list-unstyled msg_list">
                     @foreach ($cuentas as $key => $value)
                     <li>
@@ -100,6 +104,9 @@
                     </li>
                     @endforeach
                   </ul>
+                @else
+                <h5>No hay cuentas</h5>
+                @endif
              </div>
        </div>
 </div>

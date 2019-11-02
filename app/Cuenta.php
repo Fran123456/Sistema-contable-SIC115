@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class Cuenta extends Model
 {
     protected $fillable = [
-        'id', 'codigo', 'nombre',
+        'id', 'codigo', 'nombre','tipo',
     ];
 
     public static function obtener_cuentas(){

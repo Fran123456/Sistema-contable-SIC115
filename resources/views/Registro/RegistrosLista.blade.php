@@ -19,7 +19,7 @@
                             <span class="input-group-btn">
                              <button type="submit" class="btn btn-primary go-class"><i class="fa fa-search"></i></button>
                              </span>
-                            <input type="date" name="date" class="form-control">
+                            <input required="" type="date" name="date" class="form-control">
                           </div>
                     </div>
 

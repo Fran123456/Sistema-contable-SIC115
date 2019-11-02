@@ -42,7 +42,7 @@ class Registro extends Model
       if($id =="actual"){
              $registros = DB::table('registros')
             ->join('cuentas', 'cuentas.id', '=', 'registros.cuenta_id')
-            ->where('estado',$id)
+            ->where('estado',$id)->orderBy('registros.id','desc')
             ->paginate();
       }
       else{

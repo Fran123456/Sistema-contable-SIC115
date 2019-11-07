@@ -44,8 +44,8 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content" style="display: block;">
-
-                  <div class="bs-example" data-example-id="simple-jumbotron">
+                   @if (count($resultados) > 0 )
+                   <div class="bs-example" data-example-id="simple-jumbotron">
                     <div class="jumbotron text-center">
                       <h3>Empresa</h3>
                       <p>{{$fecha}}</p>
@@ -53,7 +53,6 @@
                     </div>
                   </div>
 
-                   @if (count($resultados) > 0 )
                     <table id="myTable" class="table">
                       <thead>
                         <tr>

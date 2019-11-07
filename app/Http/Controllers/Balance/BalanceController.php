@@ -16,7 +16,6 @@ class BalanceController extends Controller
         $resultados = array();
         $cuentaInfo = Cuenta::All();
         $debeF=0; $haberF=0;
-        $fecha ="";
         foreach ($cuentaInfo as $x => $c) {
         	$debe =0;
           $haber = 0;

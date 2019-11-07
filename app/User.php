@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+
 
 class User extends Authenticatable
 {
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email','tipo', 'password',
     ];
 
     /**
@@ -36,4 +38,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+   public static function crear_usuario($request){
+        $user = User::create([
+            'name'=> $request->nombre,
+            'tipo'=> $request->tipo,
+            'email' => $request->correo,
+            'password' =>Hash::make($request->pass)
+         ]);
+
+        return $user;
+    }
+
 }

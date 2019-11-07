@@ -53,8 +53,8 @@
                 <img src="{{ asset('images/img.jpg') }}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <span>Bienvenido,</span>
+                <h2>{{Auth::user()->name}}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -82,6 +82,17 @@
                   </li>
                 </ul>
               </div>
+
+              @if(Auth::user()->tipo =='administrador')
+              <div class="menu_section">
+                <h3>Configuración</h3>
+                <ul class="nav side-menu">
+                      <li><a href="{{ route('Usuarios.index') }}"><i class="fa fa-home"></i>Administrar usuarios</a></li>
+                </ul>
+              </div>
+              @endif
+
+
             </div>
             <!-- /sidebar menu -->
 

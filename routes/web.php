@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
@@ -30,5 +31,5 @@ Route::get('finalizarMesContable/{id}', 'Registro\RegistroController@finalizarMe
 Route::get('balance-Comprobacion/{id}', 'Balance\BalanceController@balance_comprobacion')->name('balanceComprobacion');
 Route::get('cuenta_otro_balance_comp', 'Balance\BalanceController@cuenta_otro_balance_comp')->name('cuenta_otro_balance_comp');
 
-
+Route::resource('Usuarios','User\UserController');
 

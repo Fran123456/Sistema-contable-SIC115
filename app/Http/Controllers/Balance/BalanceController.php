@@ -16,9 +16,11 @@ class BalanceController extends Controller
         $resultados = array();
         $cuentaInfo = Cuenta::All();
         $debeF=0; $haberF=0;
+        $fecha ="";
         foreach ($cuentaInfo as $x => $c) {
         	$debe =0;
-            $haber = 0;
+          $haber = 0;
+
         	if($id == 'actual'){
              $cuenta = Cuenta::cuenta_T_actual($c->id);
              for ($i=0; $i <count($meses) ; $i++) { 
@@ -31,14 +33,11 @@ class BalanceController extends Controller
               //otro proceso
             	$fechaX = substr($id, 0,7);
             	$cuenta = Cuenta::cuenta_T_otro( $c->id,$fechaX);
-
             	for ($i=0; $i <count($meses) ; $i++) { 
-            		
             		if((substr($id, 5,2)-1) == $i){
              		$fecha = 'BALANCE DE COMPROBACIóN DEL 01 DE '. strtoupper($meses[$i])  .' AL '.$this->ultimo_dia_($id).' DE '.strtoupper($meses[$i]).' DE '. substr($id, 0,4);
              	    }
             	}
-            	
             }
 
 	        foreach ($cuenta as $key => $value) {
@@ -73,9 +72,7 @@ class BalanceController extends Controller
 
           $debeF = $this->Dolar($debeF); 
 	      $haberF=$this->Dolar($haberF);
-        
-      
-       //return view('Cuenta.Cuenta', compact('debe','haber','cuenta','cuentaInfo','mayorizacion'));
+
       return view('Balances.BalanceComprobacion',compact('resultados','haberF','debeF','fecha'));
     }
    

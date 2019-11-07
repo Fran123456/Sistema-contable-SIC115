@@ -63,4 +63,15 @@ class Registro extends Model
       return $registros;
     } 
 
+    
+
+    public static function actualizar_estados($fecha){
+       Registro::where('estado', 'actual')->update(['estado'=> $fecha]);
+    }
+
+    public static function verificar_registros_actuales(){
+      $da = Registro::where('estado','actual')->get();
+      return count($da);
+    }
+
 }

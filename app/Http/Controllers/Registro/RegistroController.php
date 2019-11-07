@@ -87,6 +87,23 @@ class RegistroController extends Controller
         return redirect()->route('Registro.show', $fecha);
     }
 
+    public function Finalizar_mes(){
+        $soldado =0;
+        if( Registro::verificar_registros_actuales() > 0){
+          $soldado = 1;
+        }else{
+            $soldado=0;
+        }
+        return view('Registro.Finalizar',compact('soldado'));
+    }
+
+    public function finalizarMesContable($id){
+      $fecha = date('Y').'-'.date('m');
+      Registro::actualizar_estados($fecha);
+
+      return redirect('Finalizar-mes')->with('success', 'Se ha cerrado el registro contable del mes actual.');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

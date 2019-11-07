@@ -27,6 +27,12 @@
     <script src="{{ asset('dist/bootstrap/js/bootstrap.bundle.min.js') }}" ></script>
     <!--PERSONAL-->
 
+    <style type="text/css">
+      .active{
+
+      }
+    </style>
+
 
 
 </head>
@@ -56,39 +62,77 @@
             <br />
 
             <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+               <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Contabilidad <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav side-menu" style="">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('Registro.create') }}">Registro contable</a></li>
                       <li><a href="{{ route('Registro.show','actual') }}">Consultar libro diario</a></li>
                       <li><a href="{{route('Cuenta.index')}}">Cuentas T</a></li>
-                      <li><a href="">Consolidado cuentas T</a></li>
+                      <li><a href="{{route('RegistroFinalizar')}}">Finalizar mes contable</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li class=""><a><i class="fa fa-edit"></i> Balances <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none;">
+                      <li><a href="{{ route('balanceComprobacion','actual') }}">Balance de comprobación</a></li>
                     </ul>
                   </li>
                 </ul>
               </div>
-              <div class="menu_section">
-                <h3>Live On</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="e_commerce.html">E-commerce</a></li>
-                      <li><a href="projects.html">Projects</a></li>
-                      <li><a href="project_detail.html">Project Detail</a></li>
-                      <li><a href="contacts.html">Contacts</a></li>
-                      <li><a href="profile.html">Profile</a></li>
-                    </ul>
-                  </li>                
-                </ul>
-              </div>
-
             </div>
             <!-- /sidebar menu -->
+
+                      
+
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           </div>
         </div>
+
+
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
 
         <!-- top navigation -->
         <div class="top_nav">
@@ -100,7 +144,7 @@
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                      <img src="images/img.jpg" alt="">John Doe
+                      <img src="{{ asset('images/img.jpg') }} " alt="">John Doe
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item"  href="javascript:;"> Profile</a>
@@ -214,5 +258,9 @@
     <script src="{{asset('dist/nprogress/nprogress.js') }} "></script>
     <script src="{{asset('dist/moment/min/moment.min.js')}}"></script>
     <script src="{{asset('js/custom.min.js') }}" ></script>
+
+    <script type="text/javascript">
+      $('li').removeClass('active');
+    </script>
 </body>
 </html>

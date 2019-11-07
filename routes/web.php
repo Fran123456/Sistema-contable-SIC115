@@ -22,3 +22,13 @@ Route::resource('Registro','Registro\RegistroController');
 Route::get('registros_fecha','Registro\RegistroController@registros_fecha' )->name('registros_fecha');
 
 Route::resource('Cuenta','Cuenta\CuentaController');
+
+Route::get('Finalizar-mes', 'Registro\RegistroController@finalizar_mes')->name('RegistroFinalizar');
+Route::get('finalizarMesContable/{id}', 'Registro\RegistroController@finalizarMesContable')->name('finalizarMesContable');
+
+
+Route::get('balance-Comprobacion/{id}', 'Balance\BalanceController@balance_comprobacion')->name('balanceComprobacion');
+Route::get('cuenta_otro_balance_comp', 'Balance\BalanceController@cuenta_otro_balance_comp')->name('cuenta_otro_balance_comp');
+
+
+

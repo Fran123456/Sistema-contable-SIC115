@@ -22,8 +22,14 @@ class Cuenta extends Model
             return $registros;
     }
 
-    public static function cuenta_T_otro($cuenta, $fecha){
 
+
+    public static function cuenta_T_otro($cuenta, $fecha){
+            $registros = DB::table('registros')
+            ->join('cuentas', 'cuentas.id', '=', 'registros.cuenta_id')
+            ->where('estado', $fecha)->where('cuenta_id',$cuenta)
+            ->get();
+            return $registros;
     }
 
     public static function cuentaInfo($id){

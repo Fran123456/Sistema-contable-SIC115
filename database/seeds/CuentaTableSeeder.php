@@ -11,7 +11,7 @@ class CuentaTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Cuentas')->insert([
+        DB::table('cuentas')->insert([
             'codigo' => '1103',
             'nombre' => 'IVA - CREDITOS FISCAL',
             'tipo' => 'ACTIVO'

@@ -98,6 +98,14 @@ class BalanceController extends Controller
           	
 			 return $fecha->format('d');
    }
+   //COMPROBACION
+
+
+   //ESTADO DE RESULTADOS
+
+   public function seleccion_cuentas_view(){
+    
+   }
 
 
 }

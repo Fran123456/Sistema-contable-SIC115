@@ -22,5 +22,23 @@ class CuentaTableSeeder extends Seeder
             'nombre' => 'IVA - DEBITO FISCAL',
             'tipo' => 'PASIVO'
         ]);
+
+        DB::table('Cuentas')->insert([
+            'codigo' => '110101',
+            'nombre' => 'Caja General',
+            'tipo' => 'ACTIVO'
+        ]);
+
+        DB::table('Cuentas')->insert([
+            'codigo' => '110103',
+            'nombre' => 'Bancos',
+            'tipo' => 'ACTIVO'
+        ]);
+
+         DB::table('Cuentas')->insert([
+            'codigo' => '102',
+            'nombre' => 'CUENTAS POR COBRAR',
+            'tipo' => 'ACTIVO'
+        ]);
     }
 }

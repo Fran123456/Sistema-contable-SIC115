@@ -31,6 +31,11 @@ class RegistroController extends Controller
         return view('Registro.Registrar', compact('cuentas'));
     }
 
+    public function ajax_obtener_cuentas(){
+        $cuentas = Cuenta::obtener_cuentas();
+        return $cuentas;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -39,10 +44,13 @@ class RegistroController extends Controller
      */
     public function store(Request $request)
     {
-        $re1 = Registro::registrar_($request->fecha, $request->cuentaA, $request->montoA ,$request->desA,'HABER');
-        $re2 = Registro::registrar_($request->fecha, $request->cuentaB, $request->montoB ,$request->desB,'DEBE');
-
-        return redirect('Registro/create')->with('success', 'El registro se realizo correctamente');
+        for ($i=1; $i <=$request->oculto ; $i++) { 
+         //echo $request['tipo'.$i];
+         //echo '<br>';
+         $re1 = Registro::registrar_($request->fecha, $request['cuenta'.$i], $request['monto'.$i] ,$request['des'.$i], 
+            $request['tipo'.$i]); 
+        }
+        return redirect('Registro/create')->with('success', 'Los registros se realizo correctamente');
     }
 
     /**

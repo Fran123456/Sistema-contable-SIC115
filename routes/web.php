@@ -32,4 +32,7 @@ Route::get('balance-Comprobacion/{id}', 'Balance\BalanceController@balance_compr
 Route::get('cuenta_otro_balance_comp', 'Balance\BalanceController@cuenta_otro_balance_comp')->name('cuenta_otro_balance_comp');
 
 Route::resource('Usuarios','User\UserController');
+Route::get('ajax-obtener-cuentas', 'Registro\RegistroController@ajax_obtener_cuentas')->name('ajax_obtener_cuentas');
+
+//Route::get('ajax-obtener-cuentas', 'Balance\BalanceController@seleccion_cuentas_view')->name('ajax_obtener_cuentas');
 

@@ -68,103 +68,85 @@
                     <table  id="myTable" class="table">
                       <thead>
                         <tr>
-                          <th width="100">-</th>
                           <th width="400">-</th>
-                          <th width="300">Importe</th>
+                          <th width="400">Importe</th>
                         </tr>
                       </thead>
                       <tbody>
                               <tr style="background-color: #EBFAF7">
-                                <td >+</td>
-                                 <td >VENTA</td>
-                                 <td>{{$datos['VENTA']}}</td>
+                                 <td >VENTA DE VIENES</td>
+                                 <td>{{$datos['VENTA DE VIENES']}}</td>
                               </tr>
 
                               <tr style="background-color: #EBFAF7">
-                                <td >-</td>
-                                 <td >DESCUENTO DE VENTA</td>
-                                 <td>{{$datos['DESCUENTO DE VENTA']}}</td>
+                                 <td >REBAJAS Y DEVOLUCIONES EN VENTA DE VIENES</td>
+                                 <td>{{$datos['REBAJAS Y DEVOLUCIONES EN VENTA DE VIENES']}}</td>
                               </tr>
 
                               <tr style="background-color: #C8E5DF">
-                                <td >=</td>
-                                 <td>VENTA NETA</td>
-                                 <td>{{$datos['VENTA NETA']}}</td>
+                                 <td>VENTAS NETAS</td>
+                                 <td>{{$datos['VENTAS NETAS']}}</td>
                               </tr>
 
                               <tr style="background-color: #FCECF4">
-                                <td >+</td>
-                                 <td>MANO DE OBRA</td>
-                                 <td>{{$datos['MANO DE OBRA']}}</td>
+                                 <td>COSTO DE VENTA</td>
+                                 <td>{{$datos['COSTO DE VENTA']}}</td>
                               </tr>
 
                               <tr style="background-color: #FCECF4">
-                                <td >+</td>
-                                 <td>MATERIA PRIMA</td>
-                                 <td>{{$datos['MATERIA PRIMA']}}</td>
-                              </tr>
-
-                              <tr style="background-color: #F7D7E7">
-                                <td >=</td>
-                                 <td>COSTO POR VENTA</td>
-                                 <td>{{$datos['COSTO POR VENTA']}}</td>
-                              </tr>
-
-                              <tr style="background-color: #FCF4DC">
-                                <td >+</td>
-                                 <td>VENTA NETA</td>
-                                 <td>{{$datos['VENTA NETA']}}</td>
-                              </tr>
-
-                              <tr style="background-color: #FCF4DC">
-                                <td >-</td>
-                                 <td>COSTO POR VENTA</td>
-                                 <td>{{$datos['COSTO POR VENTA']}}</td>
-                              </tr>
-
-                              <tr style="background-color: #EADDB7">
-                                <td >=</td>
                                  <td>UTILIDAD BRUTA</td>
                                  <td>{{$datos['UTILIDAD BRUTA']}}</td>
                               </tr>
 
-                              <tr style="background-color: #fff">
-                                <td >+</td>
-                                 <td>GASTOS ADMINISTRATIVOS</td>
-                                 <td>{{$datos['GASTOS ADMINISTRATIVOS']}}</td>
+                              <tr style="background-color: #FCECF4">
+                                 <td>GASTOS DE OPERACIÓN</td>
+                                 <td>{{$datos['GASTOS DE OPERACION']}}</td>
                               </tr>
 
-                              <tr style="background-color: #fff">
-                                <td >+</td>
-                                 <td>GASTOS DE VENTA</td>
-                                 <td>{{$datos['GASTOS DE VENTA']}}</td>
+                              <tr style="background-color: #FCECF4">
+                                 <td>UTILIDAD DE OPERACIÓN</td>
+                                 <td>{{$datos['UTILIDAD DE OPERACION']}}</td>
                               </tr>
 
-                               <tr style="background-color: #EDE9F7">
-                                <td >=</td>
-                                 <td>TOTAL DE GASTOS</td>
-                                 <td>{{$datos['TOTAL GASTOS']}}</td>
+                            <tr style="background-color: #FCECF4">
+                                 <td>GASTOS NO OPERACIONALES</td>
+                                 <td>{{$datos['GASTOS NO OPERACIONALES']}}</td>
                               </tr>
 
-
-                              <tr style="background-color: #E6F5B6">
-                                <td >+</td>
-                                 <td>UTILIDAD BRUTA</td>
-                                 <td>{{$datos['UTILIDAD BRUTA']}}</td>
+                              <tr style="background-color: #FCECF4">
+                                 <td>UTILIDAD ANTES DEL IMPUESTO Y RESERVA</td>
+                                 <td>{{$datos['UTILIDAD ANTES IMPUESTO Y RESERVA']}}</td>
                               </tr>
 
-                              <tr style="background-color: #E6F5B6">
-                                <td >-</td>
-                                 <td>TOTAL DE GASTOS</td>
-                                 <td>{{$datos['TOTAL GASTOS']}}</td>
+                               <tr style="background-color: #FCECF4">
+                                 <td>PORCENTAJE RESERVA LEGAL</td>
+                                 <td>{{$datos['PORCENTAJE RESERVA']}}</td>
                               </tr>
 
-                              <tr style="background-color: #C6D695">
-                                <td >=</td>
-                                 <td>UTILIDAD</td>
-                                 <td>{{$datos['UTILIDAD']}}</td>
+                              <tr style="background-color: #FCECF4">
+                                 <td>RESERVA LEGAL</td>
+                                 <td>{{$datos['RESERVA LEGAL']}}</td>
                               </tr>
 
+                              <tr style="background-color: #FCECF4">
+                                 <td>UTILIDAD ANTES DE IMPUESTO SOBRE LA RENTA</td>
+                                 <td>{{$datos['UTILIDAD ANTES DE IMPUESTO RENTA']}}</td>
+                              </tr>
+
+                               <tr style="background-color: #FCECF4">
+                                 <td>PORCENTAJE SOBRE LA RENTA</td>
+                                 <td>{{$datos['PORCENTAJE RENTA']}}</td>
+                              </tr>
+
+                              <tr style="background-color: #FCECF4">
+                                 <td>GASTOS DE IMPUESTO SOBRE LA RENTA</td>
+                                 <td>{{$datos['GASTOS DE IMPUESTO RENTA']}}</td>
+                              </tr>
+
+                              <tr style="background-color: #FCECF4">
+                                 <td>UTILIDAD NETA</td>
+                                 <td>{{$datos['UTILIDAD NETA']}}</td>
+                              </tr>
                              
                       </tbody>
                     </table>
@@ -175,11 +157,49 @@
                     </div>
                   </div>
                   
+               <!--INFO-->
+
+                  <div class="text-left">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Info</button>
+                  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel">Información sobre calculos</h4>
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>VENTAS NETAS  = VENTA DE VIENES - REBAJAS Y DEVOLUCIONES EN VENTA DE VIENES</p>
+                          <br>
+                          <p>UTILIDAD BRUTA = VENTAS NETAS - COSTO DE VENTA</p>
+                          <br>
+                          <p>UTILIDAD DE OPERACIÓN = UTILIDAD BRUTA - GASTOS DE OPERACIÓN</p>
+                          <br>
+                          <p>UTILIDAD ANTES DEL IMPUESTO Y RESERVA = UTILIDAD DE OPERACIÓN - GASTOS NO OPERACIONALES</p>
+                          <br>
+                          <p>RESERVA LEGAL = UTILIDAD ANTES DEL IMPUESTO Y RESERVA * PORCENTAJE RESERVA LEGAL</p>
+                          <br>
+                          <p>UTILIDAD ANTES DE IMPUESTO SOBRE LA RENTA = UTILIDAD ANTES DEL IMPUESTO Y RESERVA - RESERVA LEGAL</p>
+                          <br>
+                          <p>GASTOS DE IMPUESTO SOBRE LA RENTA = UTILIDAD ANTES DE IMPUESTO SOBRE LA RENTA * PORCENTAJE SOBRE LA RENTA</p>
+                          <br>
+                          <p>UTILIDAD NETA = UTILIDAD ANTES DE IMPUESTO SOBRE LA RENTA - GASTOS DE IMPUESTO SOBRE LA RENTA</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <!--INFO-->
+
                 </div>
           </div>
         
-    
-   
   </div>
 </div>
 

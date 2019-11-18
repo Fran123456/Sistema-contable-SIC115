@@ -86,6 +86,10 @@ class BalanceController extends Controller
    public  function Dolar($value) {
 		  return '$ ' . number_format($value, 2);
    }
+
+   public function Porcentaje($value){
+     return ' % '.number_format(($value * 100), 2);
+   }
    
    //ultimo dia del mes actual.
    public function ultimo_dia_($fecha = null){
@@ -105,36 +109,46 @@ class BalanceController extends Controller
    //ESTADO DE RESULTADOS
    public function estado_resultado($id){
    // $datos = array('VENTA','DESCUENTO DE VENTA','MANO DE OBRA','MATERIA PRIMA','GASTOS ADMINISTRATIVOS','GASTOS DE VENTA');
-       $venta = $this->obtener_resultado('VENTA', $id);
-       $descuento_venta = $this->obtener_resultado('DESCUENTO DE VENTA', $id);
-       $ventaNeta = $venta - $descuento_venta;
+       $venta_de_vienes = $this->obtener_resultado('VENTA DE VIENES', $id);
+       $rebajas_y_devoluciones = $this->obtener_resultado('REBAJAS Y DEVOLUCIONES EN VENTA DE VIENES', $id);
+       $ventas_netas = $venta_de_vienes - $rebajas_y_devoluciones;
 
-       $mano_obra = $this->obtener_resultado('MANO DE OBRA', $id);
-       $materia_prima = $this->obtener_resultado('MATERIA PRIMA', $id);
-       $costo_por_venta = $mano_obra + $materia_prima;
+       $costo_de_venta = $this->obtener_resultado('COSTO DE VENTA', $id);
+       $utilidad_bruta = $ventas_netas - $costo_de_venta;
 
-       $gastos_administrativos= $this->obtener_resultado('GASTOS ADMINISTRATIVOS', $id);
-       $gastos_venta = $this->obtener_resultado('GASTOS DE VENTA', $id);
-       $total_gastos = $gastos_administrativos + $gastos_venta;
+       $gastos_de_operacion = $this->obtener_resultado('GASTOS DE OPERACION', $id);
+       $utilidad_de_operacion = $utilidad_bruta - $gastos_de_operacion;
 
-       //utilidad bruta
-       $utilidad_bruta = $ventaNeta - $costo_por_venta;
+       $gastos_no_operacionales = $this->obtener_resultado('GASTOS NO OPERACIONALES', $id);
+       $utilidad_antes_impuestos_reserva = $utilidad_de_operacion - $gastos_no_operacionales;
+       $porcentaje_reserva = $this->reserva_legal();
 
-       //utilidad
-       $utilidad =  $utilidad_bruta -  $gastos_venta;
+       $reserva_legal = $utilidad_antes_impuestos_reserva* $porcentaje_reserva;
+       $utilidad_antes_de_impuesto_renta = $utilidad_antes_impuestos_reserva-$reserva_legal;
+
+       $porcentaje_renta = $this->renta();
+       $gastos_de_impuesto_renta = $utilidad_antes_de_impuesto_renta * $porcentaje_renta;
+
+       $utilidadNeta = $utilidad_antes_de_impuesto_renta - $gastos_de_impuesto_renta;
+       
 
        $datos = array(
-                         'VENTA' => $this->Dolar($venta),
-                         'DESCUENTO DE VENTA' =>$this->Dolar($descuento_venta),
-                         'VENTA NETA' =>$this->Dolar($ventaNeta) ,
-                         'MANO DE OBRA'=>$this->Dolar($mano_obra) ,
-                         'MATERIA PRIMA' => $this->Dolar($materia_prima),
-                         'COSTO POR VENTA'=>$this->Dolar($costo_por_venta),
-                         'GASTOS ADMINISTRATIVOS'=>$this->Dolar($gastos_administrativos),
-                         'GASTOS DE VENTA'=>$this->Dolar($gastos_venta),
-                         'TOTAL GASTOS'=>$this->Dolar($total_gastos),
-                         'UTILIDAD BRUTA'=>$this->Dolar($utilidad_bruta),
-                         'UTILIDAD'=>$this->Dolar($utilidad) 
+                         'VENTA DE VIENES' => $this->Dolar($venta_de_vienes),
+                         'REBAJAS Y DEVOLUCIONES EN VENTA DE VIENES' => $this->Dolar($rebajas_y_devoluciones),
+                         'VENTAS NETAS'=> $this->Dolar($ventas_netas),
+                         'COSTO DE VENTA'=> $this->Dolar($costo_de_venta),
+                         'UTILIDAD BRUTA'=> $this->Dolar($utilidad_bruta),
+                         'GASTOS DE OPERACION'=> $this->Dolar($gastos_de_operacion),
+                         'UTILIDAD DE OPERACION'=> $this->Dolar($utilidad_de_operacion),
+                         'GASTOS NO OPERACIONALES'=> $this->Dolar($gastos_no_operacionales),
+                         'UTILIDAD ANTES IMPUESTO Y RESERVA'=> $this->Dolar($utilidad_antes_impuestos_reserva),
+                         'PORCENTAJE RESERVA'=> $this->Porcentaje($porcentaje_reserva),
+                         'RESERVA LEGAL'=> $this->Dolar($reserva_legal),
+                         'UTILIDAD ANTES DE IMPUESTO RENTA'=> $this->Dolar($utilidad_antes_de_impuesto_renta),
+                         'PORCENTAJE RENTA'=> $this->Porcentaje($porcentaje_renta),
+                         'GASTOS DE IMPUESTO RENTA'=> $this->Dolar($gastos_de_impuesto_renta),
+                         'UTILIDAD NETA'=> $this->Dolar($utilidadNeta),
+
                       );
        
        $meses = array('enero','febrero','marzo','abril','mayo','junio','julio', 'agosto','septiembre','octubre','noviembre','diciembre');
@@ -193,6 +207,14 @@ class BalanceController extends Controller
 
       $fecha= substr($request->fecha, 0,7);
       return redirect()->route('estadoResultado', $fecha);
+    }
+
+    public function reserva_legal(){
+      return 0.07;
+    }
+
+    public function renta(){
+      return 0.25;
     }
 
 }

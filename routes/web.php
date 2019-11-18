@@ -34,5 +34,14 @@ Route::get('cuenta_otro_balance_comp', 'Balance\BalanceController@cuenta_otro_ba
 Route::resource('Usuarios','User\UserController');
 Route::get('ajax-obtener-cuentas', 'Registro\RegistroController@ajax_obtener_cuentas')->name('ajax_obtener_cuentas');
 
-//Route::get('ajax-obtener-cuentas', 'Balance\BalanceController@seleccion_cuentas_view')->name('ajax_obtener_cuentas');
+Route::get('Config/estado-resultado', 'Config\ConfigController@view_config_estado_resultado')->name('confResultado');
 
+
+Route::post('Config/confResultadoCrear', 'Config\ConfigController@crear_')->name('confResultadoCrear');
+
+Route::get('Config/eliminarEstado/{id}', 'Config\ConfigController@eliminar_')->name('eliminarEstado');
+
+Route::get('Estado-resultado/{id}', 'Balance\BalanceController@estado_resultado')->name('estadoResultado');
+
+
+Route::get('cuentaOtroEstadoR', 'Balance\BalanceController@cuenta_otro_estado_resultado')->name('cuentaOtroEstadoR');

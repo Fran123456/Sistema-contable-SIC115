@@ -47,6 +47,24 @@ class Cuenta extends Model
     	return $cuenta;
     }
 
+    public static function mayor_($cuenta, $estado){
+
+        if($estado == 'actual'){
+            $registros = DB::table('registros')
+            ->join('cuentas', 'cuentas.id', '=', 'registros.cuenta_id')
+            ->where('estado', $estado)->where('cuenta_id',$cuenta)->select('registros.monto', 'registros.debe','registros.haber')->get();
+        }else{
+           $c= substr($estado, -2);
+           $registros = DB::table('registros')
+            ->join('cuentas', 'cuentas.id', '=', 'registros.cuenta_id')
+            ->where('estado', 'like', '%' . $c . '%')->where('cuenta_id',$cuenta)->select('registros.monto', 'registros.debe','registros.haber')->get();
+        }
+
+        
+        return $registros;
+
+    }
+
 
 
 }

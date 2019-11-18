@@ -66,7 +66,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu" style="">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-home"></i> Procesos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('Registro.create') }}">Registro contable</a></li>
                       <li><a href="{{ route('Registro.show','actual') }}">Consultar libro diario</a></li>
@@ -78,6 +78,8 @@
                   <li class=""><a><i class="fa fa-edit"></i> Balances <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" style="display: none;">
                       <li><a href="{{ route('balanceComprobacion','actual') }}">Balance de comprobación</a></li>
+                      <li><a href="{{ route('estadoResultado','actual') }}">Estado de resultado</a></li>
+                      
                     </ul>
                   </li>
                 </ul>
@@ -88,6 +90,9 @@
                 <h3>Configuración</h3>
                 <ul class="nav side-menu">
                       <li><a href="{{ route('Usuarios.index') }}"><i class="fa fa-home"></i>Administrar usuarios</a></li>
+                      <li><a href="{{ route('confResultado') }}"><i class="fa fa-home"></i>Config estado resultado</a></li>
+
+                     
                 </ul>
               </div>
               @endif

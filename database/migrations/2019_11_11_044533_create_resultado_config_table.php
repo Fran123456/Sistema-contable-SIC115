@@ -15,9 +15,8 @@ class CreateResultadoConfigTable extends Migration
     {
         Schema::create('resultado_config', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('tipo');
+            $table->string('tipo');
             $table->integer('cuenta_id');
-            $table->timestamps();
         });
     }
 
